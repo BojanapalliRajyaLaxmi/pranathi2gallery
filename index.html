@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Photo Gallery</title>
+</head>
+
+<body>
+    <h1 class="text">Photo Gallery</h1>
+    <h6 class="quote"></h6>
+    <div class="container">
+        <div class="image-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvZBi0m4_SA1NWg6GpdBym9STWd-y3ZtsWNw&s"
+                class="one" alt="Image 1" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4M20QhML8edk6mdLSG3WGnIQH07W9HRUqGw&s"
+                alt="Image 2" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbxdrJVEzP-dw5YhrN__P_0Wvq5c8msup33w&s"
+                alt="Image 3" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxVzkOBYJ0zwXh6l1j9k6v5TDwLZDUbWjUbQ&s"
+                alt="Image 4" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3DLOIqJRJgXdYmnEdQ0oTJMdyxSowvC7VQQ&s"
+                alt="Image 5" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNgRezLFB9BzDht2sgUpL9p-pwBi8W0m3Mag&s"
+                alt="Image 6" />
+        </div>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll(".image-container img");
+        const quoteEl = document.querySelector(".quote");
+        const quotes = [
+            "Be yourself; everyone else is already taken.",
+            "In the middle of difficulty lies opportunity.",
+            "Stay hungry, stay foolish.",
+            "Simplicity is the ultimate sophistication.",
+            "Do what you can, with what you have, where you are.",
+            "The only limit to our realization of tomorrow is our doubts of today.",
+            "Happiness is not something ready made. It comes from your own actions.",
+            "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+            "You miss 100% of the shots you don't take.",
+            "Dream big and dare to fail."
+        ];
+        const first = document.querySelector('.one');
+        if (first) {
+            document.body.style.backgroundImage = `url('${first.src}')`;
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundPosition = "center";
+            quoteEl.innerText = quotes[Math.floor(Math.random() * quotes.length)];
+        }
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                document.body.style.backgroundImage = `url('${img.src}')`;
+                document.body.style.backgroundRepeat = "no-repeat";
+                document.body.style.backgroundSize = "cover";
+                document.body.style.backgroundPosition = "center";
+    
+                const randomIndex = Math.floor(Math.random() * quotes.length);
+                quoteEl.innerText = quotes[randomIndex];
+            });
+        });
+    </script>
+    
+</body>
+
+</html>
