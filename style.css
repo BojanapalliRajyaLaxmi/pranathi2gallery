@@ -47,6 +47,7 @@
     height: 100vh;
     display: flex;
     align-items: center;
+    over-flow:hidden;
     justify-content: center;
     position: relative;
   }
